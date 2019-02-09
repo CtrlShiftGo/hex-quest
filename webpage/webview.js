@@ -27,6 +27,8 @@ function draw()
 	ctx.lineTo((x+(w/2)), (y+(h/4)+(h/2)));
 	ctx.lineTo(x,(y+h));
 	ctx.lineTo((x-(w/2)), (y+(h/4)+(h/2)));
+	ctx.lineTo((x-(w/2)), (y+(h/4)));
+	ctx.lineTo(x,y);
 	
 	ctx.stroke();
 	
