@@ -11,9 +11,17 @@ function Point(x,y){
     this.y = y;
     return this;
 }
+
+// From a layer generates an axial map for next layer
+function getNextLayer(layer, height, width) {
+    // Iterate through all nodes in the layer
+    // Push children with coordinates
+
+}
+
 // Constructor for root layer
 // Height and width are size in number of hexgons
-function HextRootLayer(height, width) {
+function HexRootLayer(height, width) {
     this.height = height
     this.width = width
     this.getHexLayer = getHexLayer
@@ -62,7 +70,7 @@ function getHexLayer(tgtLayer, rootLayer) {
     resultLayer = []
     while (idx < length(queue)){
         // Adding all children into the queue
-        queue[idx].subHexes.forEach(function(item, index, array) {
+        queue[idx].children.forEach(function(item, index, array) {
             if(item.layer == tgtLayer) {
                 tgtLayer.push(item)
             }
