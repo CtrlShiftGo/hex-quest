@@ -1,8 +1,22 @@
-function Hex(colour) {
+function Hex(colour, q, y) {
+    // Coordinates are axial
+    this.q = q;
+    this.y = y;
+    
+    this.parent = null
     this.colour = colour;
-    this.subHexes= [];
+    this.children= [];
     this.layer = 0;
-    this.subHexesCount = 0
+    this.childrenCount = 0
+
+    this.setColour = function setColour(colour){
+        this.colour = colour;
+    }
+
+    this.addChild = function addChild(colour, q, r) {
+        children.push(Hex(colour, q,r))
+    }
+    return this;
 }
 
 // Returns an array of hexes which correspond to a given layer
