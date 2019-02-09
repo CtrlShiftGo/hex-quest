@@ -5,6 +5,12 @@ var axialDir = [
     Hex(+1, 0), Hex(+1, -1), Hex(0, -1), 
     Hex(-1, 0), Hex(-1, +1), Hex(0, +1), 
 ]
+
+function Point(x,y){
+    this.x = x;
+    this.y = y;
+    return this;
+}
 // Constructor for root layer
 // Height and width are size in number of hexgons
 function HextRootLayer(height, width) {
@@ -38,6 +44,12 @@ function Hex(colour, q, y) {
 
     this.addChild = function addChild(colour, q, r) {
         children.push(Hex(colour, q,r))
+    }
+
+    this.getCoords = function getCoords() {
+        var x = size * (sqrt(3) * this.q  +  sqrt(3)/2 * this.r);
+        var y = size * (3/2 * this.r);
+        return Point(x,y);
     }
     return this;
 }
