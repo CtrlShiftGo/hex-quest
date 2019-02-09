@@ -1,3 +1,26 @@
+// Implementation of hex data structure
+// Provides an interface to the underlying tree
+
+var axialDir = [
+    Hex(+1, 0), Hex(+1, -1), Hex(0, -1), 
+    Hex(-1, 0), Hex(-1, +1), Hex(0, +1), 
+]
+// Constructor for root layer
+// Height and width are size in number of hexgons
+function HextRootLayer(height, width) {
+    this.height = height
+    this.width = width
+    this.getHexLayer = getHexLayer
+    // Root layer is stored in axial coordinates
+    // See [this post](https://www.redblobgames.com/grids/hexagons/) for more information
+    this.hexes = []
+    for (let q = 0; q < height; q++) {
+        for(let r = 0; r < width; r++) {
+            this.hexes.push(hexes(colour, q, r))
+        }
+    }
+}
+
 function Hex(colour, q, y) {
     // Coordinates are axial
     this.q = q;
