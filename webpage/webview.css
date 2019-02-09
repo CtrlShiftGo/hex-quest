@@ -1,8 +1,14 @@
 body {
-	background-color: lightblue;
+	background-color: black;
+	height: 100%;
+	width: 100%;
+	margin: 0;
 }
 
 
 #myCanvas {	
+	position: fixed;
 	background-color: white;
+	width: 100%;
+	height: 100%;
 }
