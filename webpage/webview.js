@@ -17,12 +17,26 @@ function draw()
 	
 	ctx.fillStyle = '#404040';
 	
-	var size = 200;
+	// Scale
+	var size = 80;
+	
+	// Initial point
 	var x = 200;
 	var y = 200;
 	
-	//call function
+	// Initial hex
 	single_hex(x, y, size, canvas);
+	
+	// Diagonal grid
+	for(i = 0; i < 8; i++)
+	{
+		var w = Math.sqrt(3)*size;
+		var h = 2*size;
+		x = x + (w/2);
+		y = y + (0.75*h);
+		single_hex(x, y, size, canvas);
+		
+	}
 }
 
 
