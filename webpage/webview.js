@@ -4,6 +4,8 @@ function hello()
 	alert("hello world");
 }
 
+
+
 function draw() 
 {
 	var canvas = document.getElementById("myCanvas");
@@ -15,14 +17,22 @@ function draw()
 	
 	ctx.fillStyle = '#404040';
 	
-	
 	var size = 200;
+	var x = 200;
+	var y = 200;
+	
+	//call function
+	single_hex(x, y, size, canvas);
+}
+
+
+function single_hex(x, y, size, canvas)
+{
+	var ctx = canvas.getContext('2d');	
 	var w = Math.sqrt(3)*size;
 	var h = 2*size;
-	var x = 400;
-	var y = 400;
-	ctx.beginPath();
 	
+	ctx.beginPath();
 	ctx.moveTo(x, y);
 	ctx.lineTo((x+(w/2)), (y-(h/4)));
 	ctx.lineTo((x+w), y);
@@ -32,15 +42,5 @@ function draw()
 	ctx.lineTo(x, y);
 	
 	ctx.stroke();
-/*
-	ctx.lineTo((x+(w/2)), (y+(h/4)));
-	ctx.lineTo((x+(w/2)), (y+(h/4)+(h/2)));
-	ctx.lineTo(x,(y+h));
-	ctx.lineTo((x-(w/2)), (y+(h/4)+(h/2)));
-	ctx.lineTo((x-(w/2)), (y+(h/4)));
-	ctx.lineTo(x,y);
 
-	ctx.stroke();
-*/
 }
-
