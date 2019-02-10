@@ -12,29 +12,6 @@ function Point(x,y){
     return this;
 }
 
-// From a layer generates an axial map for next layer
-function getNextLayer(layer, height, width) {
-    // Iterate through all nodes in the layer
-    // Push children with coordinates
-
-}
-
-// Constructor for root layer
-// Height and width are size in number of hexgons
-function HexRootLayer(height, width) {
-    this.height = height
-    this.width = width
-    this.getHexLayer = getHexLayer
-    // Root layer is stored in axial coordinates
-    // See [this post](https://www.redblobgames.com/grids/hexagons/) for more information
-    this.hexes = []
-    for (let q = 0; q < height; q++) {
-        for(let r = 0; r < width; r++) {
-            this.hexes.push(hexes(colour, q, r))
-        }
-    }
-}
-
 class Hex {
     constructor(colour, q, y) {
         // Coordinates are axial
