@@ -21,22 +21,16 @@ function draw()
 	var size = 80;
 	
 	// Initial point
-	var x = 200;
-	var y = 200;
+	var x = 50;
+	var y = 50;
 	
 	// Initial hex
-	single_hex(x, y, size, canvas);
+	//single_hex(x, y, size, canvas);
 	
-	// Diagonal grid
-	for(i = 0; i < 8; i++)
-	{
-		var w = Math.sqrt(3)*size;
-		var h = 2*size;
-		x = x + (w/2);
-		y = y + (0.75*h);
-		single_hex(x, y, size, canvas);
-		
-	}
+	diagonal(x, y, size, canvas);
+	
+	size = 20;
+	diagonal(x, y, size, canvas);
 }
 
 
@@ -58,3 +52,31 @@ function single_hex(x, y, size, canvas)
 	ctx.stroke();
 
 }
+
+
+function diagonal(x, y, size, canvas)
+{
+	var w = Math.sqrt(3)*size;
+	var h = 2*size;
+	//store x and y
+	var xtemp = x;
+	var ytemp = y;
+	
+	for(j = 1; j < 6; j++)
+	{	
+		// call first hex
+		single_hex(x, y, size, canvas);
+		// Diagonal grid
+		for(i = 0; i < 6; i++)
+		{
+			x = x + (w/2);
+			y = y + (0.75*h);
+			single_hex(x, y, size, canvas);
+		}		
+		x = xtemp+(w*j);
+		y = ytemp;
+	}
+}
+
+
+
