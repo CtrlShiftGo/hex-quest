@@ -18,19 +18,22 @@ function draw()
 	ctx.fillStyle = '#404040';
 	
 	// Scale
-	var size = 80;
+	var size = 240;
+	var scaling_factor = 1;
 	
 	// Initial point
-	var x = 50;
-	var y = 50;
+	var x = 0;
+	var y = 80;
 	
 	// Initial hex
 	//single_hex(x, y, size, canvas);
 	
-	diagonal(x, y, size, canvas);
+	diagonal(x, y, size, canvas, scaling_factor);
 	
-	size = 20;
-	diagonal(x, y, size, canvas);
+	size = size/4;
+	scaling_factor = scaling_factor*4;
+	diagonal(x, y, size, canvas, scaling_factor);
+	
 }
 
 
@@ -54,7 +57,7 @@ function single_hex(x, y, size, canvas)
 }
 
 
-function diagonal(x, y, size, canvas)
+function diagonal(x, y, size, canvas, scaling_factor)
 {
 	var w = Math.sqrt(3)*size;
 	var h = 2*size;
@@ -62,12 +65,19 @@ function diagonal(x, y, size, canvas)
 	var xtemp = x;
 	var ytemp = y;
 	
-	for(j = 1; j < 6; j++)
+	var grid_y = 4*scaling_factor;
+	var grid_x = 4*scaling_factor;
+	
+	if(scaling_factor > 1)
+	{
+		grid_x = grid_x + scaling_factor-1;
+	}
+	for(j = 1; j <= grid_y; j++)
 	{	
 		// call first hex
 		single_hex(x, y, size, canvas);
-		// Diagonal grid
-		for(i = 0; i < 6; i++)
+		// Diagonal grid		
+		for(i = 0; i < grid_x; i++)
 		{
 			x = x + (w/2);
 			y = y + (0.75*h);
