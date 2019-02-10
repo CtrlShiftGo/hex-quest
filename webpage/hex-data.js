@@ -35,31 +35,32 @@ function HexRootLayer(height, width) {
     }
 }
 
-function Hex(colour, q, y) {
-    // Coordinates are axial
-    this.q = q;
-    this.y = y;
-    
-    this.parent = null
-    this.colour = colour;
-    this.children= [];
-    this.layer = 0;
-    this.childrenCount = 0
-
-    this.setColour = function setColour(colour){
+class Hex {
+    constructor(colour, q, y) {
+        // Coordinates are axial
+        this.q = q;
+        this.y = y;
+        
+        this.parent = null
+        this.colour = colour;
+        this.children= [];
+        this.layer = 0;
+        this.childrenCount = 0
+        return this;
+    }
+    setColour(colour){
         this.colour = colour;
     }
 
-    this.addChild = function addChild(colour, q, r) {
+    addChild(colour, q, r) {
         children.push(Hex(colour, q,r))
     }
 
-    this.getCoords = function getCoords() {
+    getCoords() {
         var x = size * (sqrt(3) * this.q  +  sqrt(3)/2 * this.r);
         var y = size * (3/2 * this.r);
         return Point(x,y);
     }
-    return this;
 }
 
 // Returns an array of hexes which correspond to a given layer
