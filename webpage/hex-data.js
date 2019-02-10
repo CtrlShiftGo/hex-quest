@@ -77,9 +77,15 @@ class HexTree {
 }
 
 class Layer {
+    constructor(height, width, layerIdx) {
+        this.height = height;
+        this.width = width;
+        this.layerIdx = layerIdx;
+        this.hexes = []
+    }
+
     // Updates a hex at q,r with a colour
     updateHex(colour, q,r) {
-
     }
     // From a layer generates an axial map for next layer
     getNextLayer(layer, height, width) {
