@@ -80,6 +80,22 @@ class HexTree {
     }
 
 }
+
+
+class Layer {
+    // Updates a hex at q,r with a colour
+    updateHex(colour, q,r) {
+
+    }
+    // From a layer generates an axial map for next layer
+    getNextLayer(layer, height, width) {
+    // Iterate through all nodes in the layer
+    
+    // Push children with coordinates
+
+    }
+}
+
 // Returns an array of hexes which correspond to a given layer
 function getHexLayer(tgtLayer, rootLayer) {
     // Doing BFS until layer is reached
