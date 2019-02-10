@@ -56,8 +56,25 @@ class HexTree {
         }
     }
 
+    // Returns an array of hexes which correspond to a given layer
+    getHexLayer(tgtLayer) {
+        // Doing BFS until layer is reached
+        var queue = rootLayer;
+        var idx = 0;
+        resultLayer = [];
+        while (idx < length(queue) ){
+            // Adding all children into the queue
+            queue[idx].children.forEach(function(item, index, array) {
+                if(item.layer == tgtLayer) {
+                    tgtLayer.push(item)
+                }
+                else {
+                    queue.push(item);
+                }
+            });
+        }
+    }
 }
-
 
 class Layer {
     // Updates a hex at q,r with a colour
@@ -71,23 +88,4 @@ class Layer {
     // Push children with coordinates
 
     }
-}
-
-// Returns an array of hexes which correspond to a given layer
-function getHexLayer(tgtLayer, rootLayer) {
-    // Doing BFS until layer is reached
-    var queue = rootLayer;
-    var idx = 0;
-    resultLayer = []
-    while (idx < length(queue)){
-        // Adding all children into the queue
-        queue[idx].children.forEach(function(item, index, array) {
-            if(item.layer == tgtLayer) {
-                tgtLayer.push(item)
-            }
-            else {
-                queue.push(item);
-            }
-        });
-    };
 }
