@@ -63,6 +63,23 @@ class Hex {
     }
 }
 
+class HexTree {
+    // Constructor for root layer
+    // Height and width are size in number of hexgons
+    constructor(height, width) {
+        this.rootLayer = []
+        this.height = height
+        this.width = width
+        // Root layer is stored in axial coordinates
+        // See [this post](https://www.redblobgames.com/grids/hexagons/) for more information
+        for (let q = 0; q < height; q++) {
+            for(let r = 0; r < width; r++) {
+                this.rootLayer.push(hexes(colour, q, r))
+            }
+        }
+    }
+
+}
 // Returns an array of hexes which correspond to a given layer
 function getHexLayer(tgtLayer, rootLayer) {
     // Doing BFS until layer is reached
